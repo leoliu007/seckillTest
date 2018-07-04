@@ -1,0 +1,28 @@
+version: '2'
+services:
+  zookeeper:
+    image: wurstmeister/zookeeper
+    ports:
+      - "2181:2181"
+  kafka-service:
+    image: wurstmeister/kafka
+    ports:
+      - "9092:9092"
+    environment:
+      KAFKA_ADVERTISED_HOST_NAME: localhost
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+    volumes:
+      - d:/temp/docker.sock:/var/run/docker.sock
+  redis:
+    image: redis
+    ports: 
+      -  "6379:6379"
+  mysql:
+    image: mysql
+    ports: 
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+
+# In Mac, please add folling line to your hosts file
+# 127.0.0.1 kafka-service
