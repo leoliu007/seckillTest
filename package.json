@@ -5,7 +5,6 @@
   "private": true,
   "dependencies": {
     "egg": "^2.2.1",
-    "egg-redis": "^2.0.0",
     "egg-scripts": "^2.5.0",
     "kafka-node": "^2.6.1",
     "redis": "latest"
